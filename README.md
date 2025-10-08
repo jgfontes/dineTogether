@@ -45,9 +45,28 @@ Este projeto faz parte do **Tech Challenge - Fase 01 (FIAP)** e será desenvolvi
 
 ### 4. Funcionalidades Obrigatórias
 - [ ] Cadastro de usuários (`POST /api/v1/users`).
-- [ ] Validação de e-mail único.
 - [ ] Busca por nome (`GET /api/v1/users?name=xxx`).
 - [ ] Atualização de dados do usuário (sem senha) (`PUT /api/v1/users/{id}`).
 - [ ] Troca de senha (`PATCH /api/v1/users/{id}/password`).
-- [ ] Registro da data da última alteração (atualizar em cada mudança).
-- [ ]
+- [ ] Exclusão de usuários (`DELETE /api/v1/users/{id}`).
+- [ ] Validação de login (`POST /api/v1/auth/login`).
+- [ ] Validação simples contra o banco (não precisa ser Spring Security).  
+
+
+### 5. Documentação e Testes
+- [ ] Documentar todos os endpoints com **Swagger/OpenAPI**.
+- [ ] Criar a **coleção Postman** com testes:
+    - Cadastro válido e inválido.
+    - Alteração de senha (sucesso/erro).
+    - Atualização de dados (sucesso/erro).
+    - Busca por nome.
+    - Validação de login.
+
+## 🛠️ Tecnologias (previstas)
+- Java (versão a definir)
+- Spring Boot
+- Spring Data JPA
+- Lombok
+- OpenAPI / Swagger
+- Docker & Docker Compose
+- PostgreSQL ou MySQL (a definir)
