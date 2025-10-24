@@ -1,8 +1,17 @@
 package br.com.fiap.dine_together.dine_together.model;
 
-import java.time.LocalDateTime;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Getter
+@Setter
+@SuperBuilder
+@NoArgsConstructor
 public abstract class UserAbstract {
+    UUID id;
     String name;
     String email;
     String username;
@@ -12,5 +21,5 @@ public abstract class UserAbstract {
     Address address;
     ERole role;
 
-    abstract void setRole(ERole role);
+    public abstract void setRole(ERole role);
 }
