@@ -10,6 +10,7 @@ Este projeto faz parte do **Tech Challenge - Fase 01 (FIAP)** e será desenvolvi
 ---
 
 ## ❓ Perguntas Abertas
+
 - Qual versão do **Java** deveremos usar no projeto?
 - Vamos escrever o código em **português ou inglês**?
 - Qual banco de dados vamos usar? **MySQL** ou **PostgreSQL**?
