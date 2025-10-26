@@ -36,16 +36,16 @@ public class UserControllerImpl {
         return userService.getAllUsers();
     }
 
-    @Operation(summary = "Get user by username")
+    @Operation(summary = "Get user by ID")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "User found"),
             @ApiResponse(responseCode = "404", description = "User not found")
     })
     @GetMapping("/{id}")
     public UserDTO getUserById(
-            @Parameter(description = "Username of the user", required = true)
+            @Parameter(description = "ID of the user", required = true)
             @PathVariable UUID id) {
-        return userService.getUserByUsername(id);
+        return userService.getUserById(id);
     }
 
     @Operation(summary = "Update an existing user")
@@ -55,7 +55,7 @@ public class UserControllerImpl {
     })
     @PutMapping("/{id}")
     public UserDTO updateUser(
-            @Parameter(description = "Username of the user to update", required = true)
+            @Parameter(description = "ID of the user to update", required = true)
             @PathVariable UUID id,
             @RequestBody UpdateUserRequest request) {
         return userService.updateUser(id, request);
@@ -66,10 +66,10 @@ public class UserControllerImpl {
             @ApiResponse(responseCode = "200", description = "User deleted"),
             @ApiResponse(responseCode = "404", description = "User not found")
     })
-    @DeleteMapping("/{username}")
+    @DeleteMapping("/{id}")
     public void deleteUser(
-            @Parameter(description = "Username of the user to delete", required = true)
-            @PathVariable String username) {
-        userService.deleteUser(username);
+            @Parameter(description = "ID of the user to delete", required = true)
+            @PathVariable String id) {
+        userService.deleteUser(id);
     }
 }

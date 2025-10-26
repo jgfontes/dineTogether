@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO getUserByUsername(UUID id) {
+    public UserDTO getUserById(UUID id) {
         UserAbstract user = userRepository.findById(id);
 
         if (user == null) {
