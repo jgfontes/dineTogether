@@ -3,6 +3,7 @@ package br.com.fiap.dine_together.dine_together.service;
 import br.com.fiap.dine_together.dine_together.dto.CreateUserRequest;
 import br.com.fiap.dine_together.dine_together.dto.UpdateUserRequest;
 import br.com.fiap.dine_together.dine_together.dto.UserDTO;
+import br.com.fiap.dine_together.dine_together.exception.EntityNotFound;
 import br.com.fiap.dine_together.dine_together.model.UserAbstract;
 import br.com.fiap.dine_together.dine_together.repository.UserRepository;
 import br.com.fiap.dine_together.dine_together.util.EntityDtoMapper;
@@ -39,6 +40,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO getUserByUsername(UUID id) {
         UserAbstract user = userRepository.findById(id);
+
+        if (user == null) {
+            throw new EntityNotFound("User not found with id: " + id);
+        }
+
         return EntityDtoMapper.mapDtoToUser(user);
     }
 
@@ -52,9 +58,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO updateUser(UUID id, UpdateUserRequest request) {
         UserAbstract user = userRepository.findById(id);
-        if (user == null) return null;
+
+        if (user == null) {
+            throw new EntityNotFound("User not found with id: " + id);
+        }
+
         updateUserFromRequest(user, request);
         userRepository.save(user);
+
         return EntityDtoMapper.mapDtoToUser(user);
     }
 
